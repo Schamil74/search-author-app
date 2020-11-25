@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "commonjs",
+        "outDir": "dist/",
+        "baseUrl": ".",
+        "rootDir": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "allowJs": true,
+        "checkJs": false,
+        "jsx": "react",
+        "pretty": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        // "lib": ["dom", "dom.iterable", "esnext"],
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "typeRoots": ["node_modules/@types"],
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "importHelpers": true,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true
+    },
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Recommended",
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}

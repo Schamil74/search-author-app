@@ -1,0 +1,51 @@
+//===typo==========================
+$base_fs: 16px !default;
+// $base_lh: 1.428571429;
+$base_lh: 1;
+$base_font: Arial, sans-serif;
+// $accent_font: 'PF DinDisplay Pro', $base_font;
+$accent_font: 'Georgia', $base_font;
+
+//===colors========================
+$white: #ffffff;
+$black: #000000;
+
+$accent_light: #d62230;
+$second_light: #9b000c;
+
+$accent_dark: #252525;
+
+$accent_blue: #009ee3;
+
+$accent_gray: #828282;
+$second_gray: #4f4f4f;
+
+//===container=====================
+$body_max_width: 1920px;
+$gutter: 15px;
+
+//===breaks========================
+$breaks: (
+    laptop: 1310px,
+    tablet: 1024px,
+    mobile: 767px,
+    mobilesm: 575px,
+    mobilexs: 479px,
+);
+
+//===container-width========================
+$container: (
+    desktop: 1310px,
+    laptop: 1310px,
+    tablet: 960px,
+    mobile: 100%,
+);
+
+//===transition=====================
+$transition: linear;
+
+$cover: 'object-fit: cover;';
+$contain: 'object-fit: contain;';
+
+$create-font-face: false !default;
+$create-icon-classes: false !default;

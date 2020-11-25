@@ -1,0 +1,37 @@
+extends components/system/template/layout.pug
+
+block vars
+    - page = 'index'
+    -
+        var posts = [{
+            "userId": 1,
+            "id": 1,
+            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+        }, {
+            "userId": 1,
+            "id": 1,
+            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+        }, {
+            "userId": 1,
+            "id": 1,
+            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+        }]
+
+block content
+    +b.section._posts
+        +e.container.container
+            +b.posts
+                +e.search
+                    +e.icon
+                        +icon({name: 'search', mod: 'posts'})
+                    +e.field
+                        +input({placeholder: 'Filter by Author'}).js-search
+                +e.list
+                    //- each post in posts
+                    //-     +e.ARTICLE.item
+                    //-         +e.title.H2=post.title
+                    //-         +e.P.body=post.body
+                    //-         +e.ADDRESS.author=post.author

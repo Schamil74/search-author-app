@@ -1,0 +1,41 @@
+.h-center {
+    text-align: center;
+
+    & > * {
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+}
+
+.h-left {
+    text-align: left;
+
+    & > * {
+        margin-right: auto;
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+.h-right {
+    text-align: right;
+
+    & > * {
+        margin-right: 0;
+        margin-left: auto;
+        text-align: center;
+    }
+}
+
+.h-highlight {
+    color: $accent_light;
+}
+
+.h-overflow-y {
+    overflow-y: auto;
+}
+
+.is-hidden {
+    display: none !important;
+}

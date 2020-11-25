@@ -1,0 +1,14 @@
+mixin head(data)
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+
+    title= title || data.title
+
+    meta(content="", name="description")
+    meta(content="", name="keywords")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover")
+    meta(content="telephone=no", name="format-detection")
+    meta(name="HandheldFriendly", content="true")
+
+    script.
+        (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)

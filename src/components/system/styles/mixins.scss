@@ -1,0 +1,219 @@
+@mixin base-icon($url, $size: 'contain') {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $size;
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+
+    &::-ms-input-placeholder {
+        @content;
+    }
+
+    &:focus:required:invalid {
+        @content;
+    }
+
+    &:required:valid {
+        @content;
+    }
+}
+
+@mixin underlined($offset) {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: $offset;
+        left: 0;
+        display: block;
+        height: 1px;
+        background-color: rgba($accent_light, 0.3);
+    }
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin transition(
+    $prop: all,
+    $duration: 0.25s,
+    $transit: $transition,
+    $delay: 0s
+) {
+    transition-delay: $delay;
+    transition-timing-function: $transit;
+    transition-duration: $duration;
+    transition-property: #{$prop};
+}
+
+@mixin center() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    margin: auto;
+}
+
+@mixin nl {
+    padding: 0;
+    margin: 0;
+    text-indent: 0;
+    list-style: none;
+    list-style-position: outside;
+}
+
+@mixin cf {
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .lt-ie8 & {
+        zoom: 1;
+    }
+}
+
+@mixin blocks-justify {
+    text-align: justify;
+    text-justify: newspaper;
+}
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(
+                str-slice($string, $index + str-length($search)),
+                $search,
+                $replace
+            );
+    }
+
+    @return $string;
+}
+
+@mixin font-face(
+    $name,
+    $path,
+    $weight: null,
+    $style: null,
+    $exts: eot woff2 woff ttf svg
+) {
+    $src: null;
+
+    $extmods: (
+        eot: '?',
+        svg: '#' + str-replace($name, ' ', '_'),
+    );
+
+    $formats: (
+        otf: 'opentype',
+        ttf: 'truetype',
+    );
+
+    @each $ext in $exts {
+        $extmod: if(
+            map-has-key($extmods, $ext),
+            $ext + map-get($extmods, $ext),
+            $ext
+        );
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append(
+            $src,
+            url(quote($path + '.' + $extmod)) format(quote($format)),
+            comma
+        );
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-weight: $weight;
+        font-style: $style;
+        src: $src;
+        font-display: swap;
+    }
+}
+
+@function breakpoint-em($val) {
+    $res: $val / $base_fs * 1em;
+    @return $res;
+}
+
+@mixin above($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin above-one($width) {
+    @media screen and (min-width: ($width + 1)) {
+        @content;
+    }
+}
+
+@mixin below($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin aboveLandscape($width, $orientation: 'width') {
+    @media screen and (min-#{$orientation}: $width) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin belowLandscape($width, $orientation: 'width') {
+    @media screen and (max-#{$orientation}: $width) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin between($minWidth, $maxWidth) {
+    @media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+        @content;
+    }
+}
+
+@mixin ie {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+@mixin retina($minResolutionDpi: 144dpi, $minResolutionDpx: 1.5dppx) {
+    @media screen and (min-resolution: $minResolutionDpi),
+        (min-resolution: $minResolutionDpx) {
+        @content;
+    }
+}

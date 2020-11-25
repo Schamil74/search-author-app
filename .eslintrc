@@ -1,0 +1,23 @@
+{
+    "root": true,
+    "env": {
+        "node": true,
+        "browser": true,
+        "commonjs": true,
+        "jquery": true,
+        "es6": true
+    },
+    "globals": {
+        "ymaps": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ]
+}

@@ -1,0 +1,48 @@
+.input {
+    display: block;
+
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    color: $accent_dark;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+
+    font-family: $accent_font;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+
+    appearance: none;
+    @include transition('box-shadow, color, border-color');
+    @include placeholder {
+        color: #ccc;
+
+        font-family: $accent_font;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 40px;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 0 0px 1000px transparent inset;
+
+    -webkit-text-fill-color: $accent_dark;
+}

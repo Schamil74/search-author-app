@@ -1,0 +1,17 @@
+mixin posts(props)
+    - props = props || {}
+    - posts = props.posts || []
+    - input = props.input || {}
+    - icon = props.icon || {}
+    +b.posts
+        +e.search
+            +e.icon
+                +icon(icon)
+            +e.field
+                +input(input)
+        +e.list
+            each post in posts
+                +e.ARTICLE.item
+                    +e.title.H2=post.title
+                    +e.P.body=post.body
+                    +e.ADDRESS.author=post.author

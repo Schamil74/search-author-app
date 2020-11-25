@@ -1,0 +1,5 @@
+.browserupgrade {
+    & ~ .page__wrapper {
+        display: none;
+    }
+}

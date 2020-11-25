@@ -1,0 +1,79 @@
+.typo {
+    font-family: $accent_font;
+
+    &_xll {
+        font-size: 40px;
+        line-height: 48px;
+
+        @include below(map-get($breaks, tablet)) {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+    &_xl {
+        font-size: 32px;
+        line-height: 38px;
+
+        @include below(map-get($breaks, tablet)) {
+            font-size: 18px;
+            line-height: 21px;
+        }
+    }
+
+    &_lg {
+        font-size: 20px;
+        line-height: 24px;
+        @include below(map-get($breaks, tablet)) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    &_md {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &_sm {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &_xs {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    &_light {
+        font-weight: 300;
+    }
+
+    &_normal {
+        font-weight: 400;
+    }
+
+    &_medium {
+        font-weight: 500;
+    }
+
+    &_bold {
+        font-weight: 700;
+    }
+
+    &_extra {
+        font-weight: 900;
+    }
+
+    &_center {
+        text-align: center;
+    }
+
+    &_uppercase {
+        text-transform: uppercase;
+    }
+
+    &_underline {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+    }
+}

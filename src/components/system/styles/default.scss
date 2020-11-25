@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: $base_fs;
+
+    @include below(map-get($breaks, laptop)) {
+        font-size: 1.176470588vw;
+    }
+    @include below(map-get($breaks, tablet)) {
+        font-size: $base_fs;
+    }
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+
+    color: $accent_dark;
+    background-color: #edf2f7;
+
+    font-family: $accent_font;
+    line-height: inherit;
+
+    -webkit-font-smoothing: antialiased;
+    &.is-loading {
+        display: none;
+    }
+}
+
+.page {
+    &__wrapper {
+        display: grid;
+
+        width: 100%;
+        max-width: $body_max_width;
+        // height: 100vh;
+        min-height: 100vh;
+        margin-right: auto;
+        margin-left: auto;
+
+        grid-template-areas:
+            'header'
+            'main';
+        grid-template-rows: 80px 1fr;
+        grid-template-columns: 100%;
+        @include below(map-get($breaks, tablet)) {
+            overflow-x: hidden;
+        }
+    }
+
+    &__header {
+        width: 100%;
+        height: 80px;
+
+        grid-area: header;
+        @include below(map-get($breaks, tablet)) {
+            height: 60px;
+        }
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        grid-area: main;
+    }
+}
+
+.container {
+    max-width: map-get($container, desktop);
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $gutter;
+    padding-left: $gutter;
+
+    @include below(map-get($breaks, tablet)) {
+        max-width: map-get($container, tablet);
+    }
+    @include below(map-get($breaks, mobile)) {
+        max-width: map-get($container, mobile);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+form,
+fieldset,
+legend,
+figure,
+table,
+th,
+td,
+caption,
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+time {
+    display: inline-block;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+table {
+    border-spacing: 0;
+
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+img,
+video,
+iframe {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    width: 100%;
+}
+
+a,
+button {
+    text-decoration: none;
+
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+        text-decoration: none;
+
+        outline: none;
+    }
+}
+
+input,
+select,
+textarea {
+    outline: none;
+}

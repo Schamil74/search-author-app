@@ -1,0 +1,7 @@
+mixin icon(props)
+    - props = props || {}
+    - name = props.name || ''
+    - mod = props.mod || ''
+    - clazz = [name ? "_" + name : null, mod ? "_" + mod : null]
+    +b.I.icon(class=clazz)&attributes(attributes)
+

@@ -1,0 +1,35 @@
+mixin input(props)
+    -props = props || {}
+    -tag = props.tag || 'input'
+    -id = props.id || false
+    -className = props.className
+    -name = props.name
+    -type = props.type || 'text'
+    -minlength = props.minlength || false
+    -placeholder = props.placeholder || false
+    -required = props.required || false
+    -pattern = props.pattern || false
+    -tabIndex = props.tabIndex || false
+    -readonly = props.readonly || false
+    -autofocus = props.autofocus || false
+    -value = props.value || false
+    -mod = props.mod || false
+
+    -clazz = [className, mod]
+
+    +b(tag).input(
+        id=id
+        autofocus=autofocus
+        class=clazz
+        name=type
+        type=type
+        minlength=minlength
+        placeholder=placeholder
+        required=required
+        pattern!=pattern
+        tabindex=tabIndex || '0',
+        value=value
+        autocomplete='off'
+        readonly=readonly)&attributes(attributes)
+
+        block

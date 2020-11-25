@@ -1,0 +1,24 @@
+include includes
+block vars
+
+- ju = 'javascript:undefined';
+- title  = 'Search Author App'
+
+doctype html
+
+html(lang='ru' class='no-js')
+    head
+        +head
+
+    body.page(class='page_'+page data-page=page )
+        +ifie
+        +noscript
+        .page__wrapper
+            +loader
+            +header(page).page__header.is-hided(style="display: none")
+            +main(page).page__main.is-hided(style="display: none")
+                block content
+
+        block modal
+        //- +scripts
+
